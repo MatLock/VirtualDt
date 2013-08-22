@@ -22,6 +22,12 @@ public User(String username, Calendar birth, String name, String lastName,String
 
 
 
+public User() {
+	// TODO Auto-generated constructor stub
+}
+
+
+
 public String getUsername() {
 	return username;
 }
