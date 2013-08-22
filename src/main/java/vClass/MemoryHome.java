@@ -10,6 +10,7 @@ public class MemoryHome extends Home{
 
 	@Override
 	public User getUser(User user) throws Exception{
+		//aaa
 		for (User s : users){
 			if (user.equals(s)){
 				return s;
