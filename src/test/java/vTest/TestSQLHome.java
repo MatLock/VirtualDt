@@ -10,7 +10,7 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import dExceptions.UserDoNotExistException;
+import dExceptions.UserDoesNotExistException;
 
 import vClass.DBConnector;
 import vClass.SQLHome;
@@ -46,11 +46,11 @@ public class TestSQLHome{
 		statement.setString(5,"Bellamy");
 		Calendar cal = Calendar.getInstance();
 		statement.setDate(6, new java.sql.Date(cal.getTime().getTime()));
-		
+
 		statement.executeUpdate();
 	}
 	
-	@Test(expected= UserDoNotExistException.class)
+	@Test(expected= UserDoesNotExistException.class)
 	public void testfailedgetUser(){
 		h.getUser(u);
   }

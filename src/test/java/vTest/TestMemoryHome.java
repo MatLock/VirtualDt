@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import dExceptions.UserAlreadyExistException;
-import dExceptions.UserDoNotExistException;
+import dExceptions.UserDoesNotExistException;
 
 import vClass.MemoryHome;
 import vClass.User;
@@ -59,7 +59,7 @@ public class TestMemoryHome{
 		try{
 			assertEquals(h.getUser(u),u);
 			fail ("Exception not captured !");
-		}catch (UserDoNotExistException e){
+		}catch (UserDoesNotExistException e){
 			
 		}
 	}

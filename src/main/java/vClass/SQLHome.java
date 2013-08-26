@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 
-import dExceptions.UserDoNotExistException;
+import dExceptions.UserDoesNotExistException;
 
 
 public class SQLHome extends Home {
@@ -31,7 +31,7 @@ public class SQLHome extends Home {
 			x.setLastName(result.getString("LASTNAME"));
 			return x;
 		   } else{
-			   throw new UserDoNotExistException("User do not exist!");
+			   throw new UserDoesNotExistException("User do not exist!");
 		   }
 		  }  catch (SQLException e){
 			  throw new RuntimeException(e);

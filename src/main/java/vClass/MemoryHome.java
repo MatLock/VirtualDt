@@ -16,7 +16,7 @@ public class MemoryHome extends Home{
 				return s;
 			}
 		}
-		throw new UserDoNotExistException("user don't exist");		
+		throw new UserDoesNotExistException("user don't exist");		
 	}
 	
 	private User getUser(String userName) throws Exception{
