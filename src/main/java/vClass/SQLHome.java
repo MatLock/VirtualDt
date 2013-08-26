@@ -31,7 +31,7 @@ public class SQLHome extends Home {
 			x.setLastName(result.getString("LASTNAME"));
 			return x;
 		   } else{
-			   throw new UserDoesNotExistException("User do not exist!");
+			   throw new UserDoesNotExistException("User does not exist!");
 		   }
 		  }  catch (SQLException e){
 			  throw new RuntimeException(e);
