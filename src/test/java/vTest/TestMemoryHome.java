@@ -49,13 +49,13 @@ public class TestMemoryHome{
 	}
 	
 	@Test
-	public void testgetUser() throws Exception{
+	public void testgetUser(){
 		h.saveUser(u);
 		assertEquals(h.getUser(u),u);	
 	}
 	
 	@Test
-	public void testgetUserFailed() throws Exception{
+	public void testgetUserFailed(){
 		try{
 			assertEquals(h.getUser(u),u);
 			fail ("Exception not captured !");
@@ -65,11 +65,10 @@ public class TestMemoryHome{
 	}
 	
 	@Test
-	public void testchangePassword() throws Exception{
+	public void testchangePassword(){
 		h.saveUser(u);
 		h.changePassword("MatLock", "esdificil","esmasdificil");
 		assertEquals(u.getPassword(),"esmasdificil");	
 	}
-	
 	
 }
