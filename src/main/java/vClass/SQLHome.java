@@ -64,7 +64,7 @@ public class SQLHome extends Home {
 
 	@Override
 	public void changePassword(String userName, String oldPassword,String newPassword){
-
+  // update!
 	  try {
 		Connection conn;
 		conn = new DBConnector().getConnection();
