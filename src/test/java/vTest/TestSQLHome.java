@@ -12,13 +12,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import dExceptions.IncorrectPasswordException;
-import dExceptions.SamePasswordException;
-import dExceptions.UserDoesNotExistException;
 
 import vClass.DBConnector;
 import vClass.SQLHome;
 import vClass.User;
+import vExceptions.IncorrectPasswordException;
+import vExceptions.SamePasswordException;
+import vExceptions.UserDoesNotExistException;
 
 public class TestSQLHome{
 	

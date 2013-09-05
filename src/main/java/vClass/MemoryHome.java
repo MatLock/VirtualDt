@@ -1,7 +1,8 @@
 package vClass;
 
 import java.util.ArrayList;
-import dExceptions.*;
+
+import vExceptions.*;
 
 
 public class MemoryHome extends Home{

@@ -8,11 +8,11 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import dExceptions.UserAlreadyExistException;
-import dExceptions.UserDoesNotExistException;
 
 import vClass.MemoryHome;
 import vClass.User;
+import vExceptions.UserAlreadyExistException;
+import vExceptions.UserDoesNotExistException;
 
 
 public class TestMemoryHome{

@@ -1,4 +1,4 @@
-package dExceptions;
+package vExceptions;
 
 @SuppressWarnings("serial")
 public class UserAlreadyExistException extends RuntimeException {

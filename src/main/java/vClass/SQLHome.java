@@ -6,10 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 
-import dExceptions.IncorrectPasswordException;
-import dExceptions.SamePasswordException;
-import dExceptions.UserAlreadyExistException;
-import dExceptions.UserDoesNotExistException;
+import vExceptions.IncorrectPasswordException;
+import vExceptions.SamePasswordException;
+import vExceptions.UserAlreadyExistException;
+import vExceptions.UserDoesNotExistException;
+
 
 
 public class SQLHome extends Home {
