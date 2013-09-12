@@ -1,21 +1,18 @@
 package Services;
 
-import vClass.ClassDAO;
-import vClass.Operation;
+
 import vClass.Player;
+import vClass.SessionManager;
 
-public class PlayerManager implements Operation<Player> {
-
-	private int id;
+public class PlayerManager{
 	
-	public PlayerManager(int id) {
-		super();
-		this.id = id;
+	public Player executeGet(int id) {
+		return SessionManager.runInSession(new AskForPlayer(id));
 	}
 	
-	public Player execute() {
-		Player p;
-		p = new ClassDAO<Player>(Player.class).get(id);
-		return p;
-	}
+	public void executeSave(String position, int score, String name, int id) {
+		 SessionManager.runInSession(new SavePlayer(position, score, name, id));
+		}
+	
+
 }
