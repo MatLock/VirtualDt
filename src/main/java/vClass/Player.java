@@ -5,8 +5,19 @@ public class Player {
 	private String position;
 	private int score;
 	private String name;
-
+    private int id;
+    
+    
+    
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	protected Player(){
 		
 	}
