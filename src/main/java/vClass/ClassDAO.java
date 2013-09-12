@@ -8,6 +8,7 @@ public class ClassDAO<T> {
 		this.entityType = entityType;
 	}
 
+	@SuppressWarnings("unchecked")
 	public T get(int id){
 		return (T) SessionManager.getSession().get(entityType, id);
 	}
