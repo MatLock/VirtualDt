@@ -9,7 +9,16 @@ public class Team {
 	private List<Player> players;
 	private Map<String, Integer> formations;
 	private List<Player> actualFormation;
+	private int id;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Team(){
 		
 	}
