@@ -12,12 +12,12 @@ public class TeamManager {
 		return SessionManager.runInSession(new AskForTeam(id));
 	}
 
-	public void crearJugador(List<Player> players, Map<String, Integer> formations, 
+	public void createTeam(List<Player> players, Map<String, Integer> formations, 
 			   List<Player> actualFormation) {
 		SessionManager.runInSession(new CreateTeam(players, formations, actualFormation));
 	}
 
-	public Team modificarNombre(List<Player> players, Map<String, Integer> formations, 
+	public Team Modifier(List<Player> players, Map<String, Integer> formations, 
 			   List<Player> actualFormation) {
 		return SessionManager.runInSession(new ModifierTeam(players, formations, actualFormation));
 	}
