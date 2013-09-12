@@ -6,9 +6,14 @@ public class Match {
 	
 	private int date;
 	private List<Game> matches;
-
+	private int id;
 	
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getDate() {
 		return date;
 	}

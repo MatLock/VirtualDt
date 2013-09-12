@@ -10,7 +10,9 @@ public class Team {
 	private Map<String, Integer> formations;
 	private List<Player> actualFormation;
 	
-	
+	public Team(){
+		
+	}
 	
 	public Team(List<Player> players, Map<String, Integer> formations,
 			List<Player> actualFormation) {

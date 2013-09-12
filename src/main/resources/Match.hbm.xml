@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="unq.tpi.persistencia.Jugador" table="match">
+		<id name="id" type="java.lang.Integer">
+			<column name="M_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="date" type="Date">
+			<column name="M_DATE" length="20" not-null="true" unique="false" />
+		</property>
+	</class>
+</hibernate-mapping>
