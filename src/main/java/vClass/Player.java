@@ -22,12 +22,11 @@ public class Player {
 		
 	}
 	
-	public Player(String position, int score, String name,int id) {
+	public Player(String position, int score, String name) {
 		super();
 		this.position = position;
 		this.score = score;
 		this.name = name;
-		this.id = id;
 	}
 	public String getPosition() {
 		return position;

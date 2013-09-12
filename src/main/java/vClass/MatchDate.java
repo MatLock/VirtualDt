@@ -2,7 +2,7 @@ package vClass;
 
 import java.util.List;
 
-public class Match {
+public class MatchDate {
 	
 	private int date;
 	private List<Game> matches;

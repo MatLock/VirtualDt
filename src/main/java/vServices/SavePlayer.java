@@ -1,4 +1,4 @@
-package Services;
+package vServices;
 
 import vClass.ClassDAO;
 import vClass.Operation;
@@ -8,20 +8,18 @@ public class SavePlayer implements Operation<Player> {
 	private String position;
 	private int score;
 	private String name;
-    private int id;
     
 
-	public SavePlayer (String position, int score,String name, int id) {
+	public SavePlayer (String position, int score,String name) {
 		super();
 		this.position=position;
 		this.score=score;
 		this.name=name;
-		this.id=id;
 	}
 
 
 	public Player execute() {
-		Player p = new Player(position,score,name,id);
+		Player p = new Player(position,score,name);
 		new ClassDAO<Player>(Player.class).save(p);
 		return p;
 	}
