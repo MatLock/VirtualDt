@@ -8,7 +8,7 @@ import vClass.SessionManager;
 import vClass.Team;
 
 public class TeamManager {
-	public Team consultarJugador(int id) {
+	public Team askForTeam(int id) {
 		return SessionManager.runInSession(new AskForTeam(id));
 	}
 
@@ -17,7 +17,7 @@ public class TeamManager {
 		SessionManager.runInSession(new CreateTeam(players, formations, actualFormation));
 	}
 
-	public Team Modifier(List<Player> players, Map<String, Integer> formations, 
+	public Team ModifyTeam(List<Player> players, Map<String, Integer> formations, 
 			   List<Player> actualFormation) {
 		return SessionManager.runInSession(new ModifierTeam(players, formations, actualFormation));
 	}
