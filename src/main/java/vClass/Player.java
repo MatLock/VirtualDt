@@ -1,10 +1,15 @@
 package vClass;
 
 public class Player {
+	
 	private String position;
 	private int score;
 	private String name;
 
+	
+	protected Player(){
+		
+	}
 	
 	public Player(String position, int score, String name) {
 		super();
