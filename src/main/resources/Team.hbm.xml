@@ -1,5 +1,5 @@
 <hibernate-mapping>
-	<class name="src.vClass.Game" table="Game">
+	<class name="vClass.Game" table="Game">
 		<id name="id" type="java.lang.Integer">
 			<column name="G_ID" />
 			<generator class="identity" />

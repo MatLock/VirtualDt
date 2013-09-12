@@ -1,5 +1,5 @@
 <hibernate-mapping>
-	<class name="unq.tpi.persistencia.Jugador" table="match">
+	<class name="vClass.Game" table="match">
 		<id name="id" type="java.lang.Integer">
 			<column name="M_ID" />
 			<generator class="identity" />
