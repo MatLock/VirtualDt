@@ -8,6 +8,33 @@ public abstract class Game {
 	private Team teamone;
 	private Team teamtwo;
 
+	private int id;
+	
+	
+	public Date getD() {
+		return d;
+	}
+
+
+	public void setD(Date d) {
+		this.d = d;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	protected Game(){
+	}
+	
+	
 	public Team getTeamone() {
 		return teamone;
 	}
