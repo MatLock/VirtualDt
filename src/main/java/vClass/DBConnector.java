@@ -14,7 +14,7 @@ public class DBConnector {
 	}
 	
 	public Connection getConnection()throws SQLException{
-		return DriverManager.getConnection("jdbc:mysql://localhost/Usuario", "root" , "diego");
+		return DriverManager.getConnection("jdbc:mysql://localhost/Usuario", "root" , "federico");
 	}
 
 }

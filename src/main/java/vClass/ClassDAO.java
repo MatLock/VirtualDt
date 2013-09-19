@@ -19,7 +19,7 @@ public class ClassDAO<T> {
 	@SuppressWarnings("unchecked")
 	public T get(String name){
 		Criteria criteria = SessionManager.getSession().createCriteria(entityType);
-		criteria.add(Restrictions.eq("name",name));
+		criteria.add(Restrictions.eq("NAME",name));
 		return (T) criteria.uniqueResult();
 	}
 

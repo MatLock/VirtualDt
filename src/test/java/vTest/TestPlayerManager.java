@@ -2,11 +2,11 @@ package vTest;
 
 import static org.junit.Assert.*;
 
-import org.hibernate.classic.Session;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import vClass.Operation;
 import vClass.Player;
 import vClass.SessionManager;
 import vServices.PlayerManager;
@@ -23,13 +23,23 @@ public class TestPlayerManager {
 	
 	@Test
 	public void testexecuteGet(){
-		assertEquals("Hannah",playerManager.executeGet("Hannah").getName());
+		Player player = playerManager.executeGet("Hannah");
+		assertEquals("Hannah",player.getName());
 	}
 	
 	@After
-	public void tearDown(){
-		Player p = playerManager.executeGet("Hannah");
-		SessionManager.getSession().delete(p);
+	public void tearDown(){ 
+		final Player player = playerManager.executeGet("Hannah");
+		SessionManager.runInSession(new Operation<Object>(){
+
+			public Object execute() {	
+				SessionManager.getSession().delete(player);
+				return null;
+			}
+			
+		});
+		
 	}
+	
 
 }

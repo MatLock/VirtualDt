@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version = "1.0" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="vClass.Game" table="Game">
+		<id name="id" type="java.lang.Integer">
+			<column name="G_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="date" type="date">
+			<column name="DATE" length="20" not-null="true" unique="false" />
+		</property>
+		<property name="teamone" type="team">
+			<column name="TEAM_ONE" length="20" not-null="true" unique="false" />
+		</property>
+		<property name="teamtwo" type="team">
+			<column name="TEAM_TWO" not-null="false" unique="false" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

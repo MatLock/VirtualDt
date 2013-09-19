@@ -15,7 +15,6 @@ public class CreateTeam implements Operation<Team>{
 	
 	public CreateTeam(List<Player> players, Map<String, Integer> formations, 
 					   List<Player> actualFormation){
-		
 		this.players = players;
 		this.formations = formations;
 		this.actualFormation = actualFormation;
