@@ -1,32 +1,35 @@
 package vClass;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 public abstract class Game {
 
-	Date d;
+	Calendar date;
 	private Team teamone;
 	private Team teamtwo;
+    private long id;
+    private int id_game;
+	private Team winner;
+	
 
-	private int id;
-	
-	
-	public Date getD() {
-		return d;
+
+	public Calendar getDate() {
+		return date;
 	}
 
 
-	public void setD(Date d) {
-		this.d = d;
+	public void setDate(Calendar date) {
+		this.date = date;
 	}
 
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -54,6 +57,11 @@ public abstract class Game {
 		this.teamtwo = teamtwo;
 	}
 
+	public void setWinner(Team winner) {
+		this.winner = winner;
+	}
+
+
 	public Result startGame(){
 		
 		double scoreLocal = this.teamone.score() * (Math.random() / 5 + 0.9);
@@ -70,5 +78,15 @@ public abstract class Game {
 	}
 	
 	public abstract Team getWinner();
+
+
+	public int getId_game() {
+		return id_game;
+	}
+
+
+	public void setId_game(int id_game) {
+		this.id_game = id_game;
+	}
 
 }

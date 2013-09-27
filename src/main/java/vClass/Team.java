@@ -9,14 +9,23 @@ public class Team {
 	private List<Player> players;
 	private Map<String, Integer> formations;
 	private List<Player> actualFormation;
-	private int id;
+	private long id;
+	private String name;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Team(){
@@ -24,13 +33,23 @@ public class Team {
 	}
 	
 	public Team(List<Player> players, Map<String, Integer> formations,
-			List<Player> actualFormation) {
+			List<Player> actualFormation,String name) {
 		super();
 		this.players = players;
 		this.formations = formations;
 		this.actualFormation = actualFormation;
+		this.name = name;
 	}
 
+	public Team addPlayer(Player p){
+		this.getPlayers().add(p);
+		return this;
+	}
+	
+	public Team addPlayerTeamFormation(Player p){
+		this.getActualFormation().add(p);
+		return this;
+	}
 	
 
 	public List<Player> getPlayers() {

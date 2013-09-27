@@ -6,30 +6,27 @@
 
 <hibernate-mapping>
 	<class name="vClass.Team" table="TEAM">
-		<id name="id" type="java.lang.Integer">
+		<id name="id" type="java.lang.Long">
 			<column name="T_ID" />
 			<generator class="identity" />
 		</id>
-		<bag name="players" cascade="All">
+		<property name="name" type="java.lang.String">
+			<column name="NAME" length="20" not-null="true" unique="true" />
+		</property>
+		<bag name="players" cascade="all" lazy = "false">
 			<key column="T_ID"></key>
 			<one-to-many class="vClass.Player" />
 		</bag>
-		<bag name="actualFormation" cascade="All">
-			<key column="T_ID"></key>
+		<bag name="actualFormation" cascade="all" lazy = "false">
+			<key column="FORMATIONACTUAL"></key>
 			<one-to-many class="vClass.Player" />
 		</bag>
-		 <bag name="players" cascade="All">
-                 <key column="T_ID" ></key>
-                 <one-to-many class="vClass.Player"/>
-               </bag>
-          <map table="FORMATIONS" name="formations">
-          	<key column="T_ID"></key>
-          	<map-key column="TYPEPOSITION" type="java.lang.String"></map-key>
-          	<element type="java.lang.Integer">
-          		<column name="QUANTITY"></column>
-          	</element>
-          </map>
-               
-
+		<map table="FORMATIONS" name="formations" lazy = "false">
+			<key column="T_ID"></key>
+			<map-key column="TYPEPOSITION" type="java.lang.String"></map-key>
+			<element type="java.lang.Integer">
+				<column name="QUANTITY"></column>
+			</element>
+		</map>
 	</class>
 </hibernate-mapping>

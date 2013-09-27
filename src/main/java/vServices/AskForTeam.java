@@ -8,16 +8,17 @@ import vClass.Team;
 
 public class AskForTeam implements Operation<Team> {
 	
-private int id;
+    private int id;
+    private String name;     
 	
-	public AskForTeam(int id) {
+	public AskForTeam(String name) {
 		super();
-		this.id = id;
+		this.name = name;
 	}
 	
 	public Team execute() {
 		Team p;
-		p = new ClassDAO<Team>(Team.class).get(id);
+		p = new ClassDAO<Team>(Team.class).get(name);
 		return p;
 	}
 	

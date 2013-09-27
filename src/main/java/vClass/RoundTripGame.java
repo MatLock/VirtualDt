@@ -1,6 +1,22 @@
 package vClass;
 
+import java.util.Calendar;
+
 public class RoundTripGame extends Game {
+	
+	
+	protected RoundTripGame() {
+		super();
+	}
+	
+	public RoundTripGame(Calendar d,Team teamone,Team teamtwo,int id_game){
+		super();
+		this.setDate(d);
+		this.setId_game(id_game);
+		this.setTeamone(teamone);
+		this.setTeamtwo(teamtwo);
+	}
+	
 	
 	
 public Team winnerPenalties(){
@@ -18,10 +34,15 @@ public Team winnerPenalties(){
 		
 		Result resultMatch = this.startGame();
 		Result resultSecondMatch = this.startGame();
-		if (resultMatch == Result.local && resultMatch == resultSecondMatch )
+		if (resultMatch == Result.local && resultMatch == resultSecondMatch ){
+			this.setWinner(this.getTeamone());
 			return this.getTeamone();
-		if(resultMatch == Result.visitor && resultMatch == resultSecondMatch )
+		}
+		if(resultMatch == Result.visitor && resultMatch == resultSecondMatch ){
+			this.setWinner(this.getTeamtwo());
 			return this.getTeamtwo();
+		}	
+		this.setWinner(this.winnerPenalties());
 		return this.winnerPenalties();
 	}
 

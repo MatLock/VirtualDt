@@ -8,14 +8,15 @@
 			<column name="P_ID" />
 			<generator class="identity" />
 		</id>
-		<property name="name" type="string">
+		<property name="name" type="java.lang.String">
 			<column name="NAME" length="20" not-null="true" unique="false" />
 		</property>
-		<property name="position" type="string">
+		<property name="position" type="java.lang.String">
 			<column name="POSITION" length="20" not-null="true" unique="false" />
 		</property>
-		<property name="score" type="int">
+		<property name="score" type="java.lang.Integer">
 			<column name="SCORE" not-null="false" unique="false" />
 		</property>
+		
 	</class>
 </hibernate-mapping>
