@@ -18,7 +18,7 @@ public class AskForMatch implements Operation<MatchDate> {
 	}
 
 	public MatchDate execute() {
-		MatchDate m = new ClassDAO<MatchDate>(MatchDate.class).get(date);
+		MatchDate m = new ClassDAO<MatchDate>(MatchDate.class).uniqueValue(date,"date");
 		return m;
 	}
 	

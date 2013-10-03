@@ -17,7 +17,7 @@ public class AskForGame implements Operation<Game> {
     	
     }
 	public Game execute() {
-		Game game =  new ClassDAO<Game>(Game.class).uniqueValue(ID_GAME);
+		Game game =  new ClassDAO<Game>(Game.class).uniqueValue(ID_GAME,"id_game");
 		return game;	
 	}
 	

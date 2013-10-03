@@ -5,12 +5,11 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
 
-
 public class SessionManager {
-	
+
 	private static SessionFactory sessionFactory;
 	private static ThreadLocal<Session> tlSession;
-	
+
 	public synchronized static SessionFactory getSessionFactory() {
 		if (sessionFactory == null) {
 			Configuration cfg = new Configuration();
@@ -22,20 +21,26 @@ public class SessionManager {
 
 		return sessionFactory;
 	}
-	
-	public static <T> T runInSession(Operation<T> cmd){
+
+	public static <T> T runInSession(Operation<T> cmd) {
 		SessionFactory sessionFactory = SessionManager.getSessionFactory();
 		Transaction transaction = null;
 		T result = null;
 		Session session = null;
-		
+		boolean firstTime = tlSession.get() == null;
 		try {
-			session = sessionFactory.openSession();
-			transaction = session.beginTransaction();
+			if (firstTime) {
 
-			tlSession.set(session);
-			
+				session = sessionFactory.openSession();
+				transaction = session.beginTransaction();
+
+				tlSession.set(session);
+			}
 			result = cmd.execute();
+
+			if (!firstTime) {
+				return result;
+			}
 
 			session.flush();
 			transaction.commit();
@@ -44,11 +49,14 @@ public class SessionManager {
 				transaction.rollback();
 			throw new RuntimeException(e);
 		} finally {
-			if (session != null)
-				session.close();
-			tlSession.set(null);
+			if (firstTime) {
+
+				if (session != null)
+					session.close();
+				tlSession.set(null);
+			}
 		}
-		
+
 		return result;
 	}
 

@@ -15,14 +15,14 @@ public class ClassDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public T get(int id){
+	public T get(long id){
 		return (T) SessionManager.getSession().get(entityType, id);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public T uniqueValue(int uniqueValue){
+	public T uniqueValue(int uniqueValue,String field){
 		Criteria criteria = SessionManager.getSession().createCriteria(entityType);
-		criteria.add(Restrictions.eq("id_game", uniqueValue));
+		criteria.add(Restrictions.eq(field, uniqueValue));
 		return (T) criteria.uniqueResult();
 	}
 	

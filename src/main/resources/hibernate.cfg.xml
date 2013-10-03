@@ -17,5 +17,6 @@
         <mapping resource="Player.hbm.xml"></mapping>
         <mapping resource="Team.hbm.xml"></mapping>
 		 <mapping resource="Game.hbm.xml"></mapping>
+		 <mapping resource="Match.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

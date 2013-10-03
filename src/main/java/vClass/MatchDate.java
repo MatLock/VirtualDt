@@ -4,9 +4,9 @@ import java.util.List;
 
 public class MatchDate {
 	
-	private int date;
+	private Integer date;
 	private List<Game> matches;
-	private int id;
+	private Long id;
 	
 	protected MatchDate(){
 		
@@ -17,16 +17,16 @@ public class MatchDate {
 		this.matches = matches;
 	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getDate() {
+	public Integer getDate() {
 		return date;
 	}
-	public void setDate(int date) {
+	public void setDate(Integer date) {
 		this.date = date;
 	}
 	public List<Game> getMatches() {
