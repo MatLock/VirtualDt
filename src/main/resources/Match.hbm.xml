@@ -1,13 +1,15 @@
 <hibernate-mapping>
-	<class name="vClass.Game" table="match">
-		<id name="id" type="java.lang.Integer">
+	<class name="vClass.Game" table="MATCH">
+		<id name="id" type="java.lang.Long">
 			<column name="M_ID" />
 			<generator class="identity" />
 		</id>
-		<property name="date" type="Date">
+		<property name="date" type="java.lang.Integer">
 			<column name="M_DATE" length="20" not-null="true" unique="false" />
 		</property>
-		
-		
+		<bag name="matches" cascade="all" lazy="false">
+			<key column="MATCH"></key>}
+			<one-to-many class="vClass.Game"/>
+		</bag>
 	</class>
 </hibernate-mapping>

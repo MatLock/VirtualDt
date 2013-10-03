@@ -8,6 +8,15 @@ public class MatchDate {
 	private List<Game> matches;
 	private int id;
 	
+	protected MatchDate(){
+		
+	}
+	
+	public MatchDate(int date,List<Game>matches){
+		this.date = date;
+		this.matches = matches;
+	}
+	
 	public int getId() {
 		return id;
 	}
