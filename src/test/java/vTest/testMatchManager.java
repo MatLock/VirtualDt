@@ -65,7 +65,7 @@ public class testMatchManager {
 		game = new RoundTripGame(date,t1,t2,8);
 		matches.add(game);
 		
-		SessionManager.runInSession(new SaveMatch(matches,dateMatch));
+		matchManager.executeSave(matches, dateMatch);
 	}
 	
 	@Test
