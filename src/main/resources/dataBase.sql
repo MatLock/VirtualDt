@@ -1,0 +1,194 @@
+-- MySQL dump 10.13  Distrib 5.5.32, for debian-linux-gnu (i686)
+--
+-- Host: localhost    Database: Usuario
+-- ------------------------------------------------------
+-- Server version	5.5.32-0ubuntu0.12.10.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `FORMATIONS`
+--
+
+DROP TABLE IF EXISTS `FORMATIONS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `FORMATIONS` (
+  `T_ID` bigint(20) NOT NULL,
+  `QUANTITY` int(11) DEFAULT NULL,
+  `TYPEPOSITION` varchar(255) NOT NULL,
+  PRIMARY KEY (`T_ID`,`TYPEPOSITION`),
+  KEY `FK304079E2463DF0F` (`T_ID`),
+  CONSTRAINT `FK304079E2463DF0F` FOREIGN KEY (`T_ID`) REFERENCES `TEAM` (`T_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FORMATIONS`
+--
+
+LOCK TABLES `FORMATIONS` WRITE;
+/*!40000 ALTER TABLE `FORMATIONS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FORMATIONS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `GAME`
+--
+
+DROP TABLE IF EXISTS `GAME`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `GAME` (
+  `G_ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `TYPE` varchar(255) NOT NULL,
+  `ID_GAME` int(11) NOT NULL,
+  `ID_TEAMONE` bigint(20) DEFAULT NULL,
+  `ID_TEAMTWO` bigint(20) DEFAULT NULL,
+  `ID_WINNER` bigint(20) DEFAULT NULL,
+  `M_ID` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`G_ID`),
+  KEY `FK2143F257CEA1F4` (`ID_TEAMTWO`),
+  KEY `FK2143F257CE8E0E` (`ID_TEAMONE`),
+  KEY `FK2143F2DAB0BE2C` (`ID_WINNER`),
+  KEY `M_ID` (`M_ID`),
+  CONSTRAINT `M_ID` FOREIGN KEY (`M_ID`) REFERENCES `MATCH` (`M_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK2143F257CE8E0E` FOREIGN KEY (`ID_TEAMONE`) REFERENCES `TEAM` (`T_ID`),
+  CONSTRAINT `FK2143F257CEA1F4` FOREIGN KEY (`ID_TEAMTWO`) REFERENCES `TEAM` (`T_ID`),
+  CONSTRAINT `FK2143F2DAB0BE2C` FOREIGN KEY (`ID_WINNER`) REFERENCES `TEAM` (`T_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `GAME`
+--
+
+LOCK TABLES `GAME` WRITE;
+/*!40000 ALTER TABLE `GAME` DISABLE KEYS */;
+/*!40000 ALTER TABLE `GAME` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MATCH`
+--
+
+DROP TABLE IF EXISTS `MATCH`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MATCH` (
+  `M_ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `M_DATE` int(11) NOT NULL,
+  PRIMARY KEY (`M_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MATCH`
+--
+
+LOCK TABLES `MATCH` WRITE;
+/*!40000 ALTER TABLE `MATCH` DISABLE KEYS */;
+/*!40000 ALTER TABLE `MATCH` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Player`
+--
+
+DROP TABLE IF EXISTS `Player`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Player` (
+  `P_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(20) NOT NULL,
+  `POSITION` varchar(20) NOT NULL,
+  `SCORE` int(11) DEFAULT NULL,
+  `T_ID` bigint(20) DEFAULT NULL,
+  `FORMATIONACTUAL` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`P_ID`),
+  KEY `FK8EA38701463DF0F` (`T_ID`),
+  KEY `FK8EA387019A80DBC8` (`FORMATIONACTUAL`),
+  CONSTRAINT `FK8EA38701463DF0F` FOREIGN KEY (`T_ID`) REFERENCES `TEAM` (`T_ID`),
+  CONSTRAINT `FK8EA387019A80DBC8` FOREIGN KEY (`FORMATIONACTUAL`) REFERENCES `TEAM` (`T_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Player`
+--
+
+LOCK TABLES `Player` WRITE;
+/*!40000 ALTER TABLE `Player` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Player` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TEAM`
+--
+
+DROP TABLE IF EXISTS `TEAM`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TEAM` (
+  `T_ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(20) NOT NULL,
+  PRIMARY KEY (`T_ID`),
+  UNIQUE KEY `NAME` (`NAME`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TEAM`
+--
+
+LOCK TABLES `TEAM` WRITE;
+/*!40000 ALTER TABLE `TEAM` DISABLE KEYS */;
+/*!40000 ALTER TABLE `TEAM` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `USER`
+--
+
+DROP TABLE IF EXISTS `USER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `USER` (
+  `NAME` varchar(10) NOT NULL,
+  `USERNAME` varchar(15) NOT NULL,
+  `EMAIL` varchar(20) NOT NULL,
+  `PASSWORD` varchar(20) NOT NULL,
+  `LASTNAME` varchar(45) NOT NULL,
+  `BIRTH` date NOT NULL,
+  PRIMARY KEY (`USERNAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `USER`
+--
+
+LOCK TABLES `USER` WRITE;
+/*!40000 ALTER TABLE `USER` DISABLE KEYS */;
+/*!40000 ALTER TABLE `USER` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-10-03 12:52:11
