@@ -8,7 +8,7 @@ public class MatchDate {
 	private List<Game> matches;
 	private Long id;
 	
-	protected MatchDate(){
+	public MatchDate(){
 		
 	}
 	

@@ -4,7 +4,27 @@ import java.util.List;
 
 public class Tournament {
 	
+	private int id_tournament;
+	private long T_ID;
 	private List<MatchDate> fixture;
+	
+	protected Tournament(){
+		
+	}
+	
+	public Tournament(List<MatchDate> fixture, int id_tournament) {
+		this.fixture = fixture;
+		this.id_tournament = id_tournament;
+	}
+
+	public int getId_tournament() {
+		return id_tournament;
+	}
+
+	public void setId_tournament(int id_tournament) {
+		this.id_tournament = id_tournament;
+	}
+
 	
 	public List<MatchDate> getFixture() {
 		return fixture;
@@ -14,5 +34,11 @@ public class Tournament {
 		this.fixture = fixture;
 	}
 	
-	
+	public long getT_ID() {
+		return T_ID;
+	}
+
+	public void setT_ID(long t_ID) {
+		T_ID = t_ID;
+	}
 }

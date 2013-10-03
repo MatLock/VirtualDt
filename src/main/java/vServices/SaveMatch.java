@@ -9,7 +9,6 @@ import vClass.Operation;
 
 public class SaveMatch implements Operation<MatchDate>{
 	
-	private long id;
 	private int date;
 	private List<Game>matches;
 
@@ -23,7 +22,5 @@ public class SaveMatch implements Operation<MatchDate>{
 		new ClassDAO<MatchDate>(MatchDate.class).save(m);
 		return null;
 	}
-	
-	
 
 }
