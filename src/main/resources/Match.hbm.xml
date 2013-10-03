@@ -7,5 +7,7 @@
 		<property name="date" type="Date">
 			<column name="M_DATE" length="20" not-null="true" unique="false" />
 		</property>
+		
+		
 	</class>
 </hibernate-mapping>
