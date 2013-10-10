@@ -5,7 +5,7 @@ import java.util.List;
 public class Tournament {
 	
 	private int id_tournament;
-	private long T_ID;
+	private long id;
 	private List<MatchDate> fixture;
 	
 	protected Tournament(){
@@ -34,11 +34,11 @@ public class Tournament {
 		this.fixture = fixture;
 	}
 	
-	public long getT_ID() {
-		return T_ID;
+	public long getId() {
+		return id;
 	}
 
-	public void setT_ID(long t_ID) {
-		T_ID = t_ID;
+	public void setId(long id) {
+		this.id = id;
 	}
 }
